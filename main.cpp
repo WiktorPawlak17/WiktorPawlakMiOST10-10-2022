@@ -44,7 +44,7 @@ int main(int argc, char** argv) {
 	temp = (t[1]*a[1] + a[0]*a[0]*t[0])/2;
 	x.push_back(temp);
 	//x3
-	temp = a[0]*a[1]+(a[0]*a[0]*a[0])/6;
+	temp = a[0]*a[1]*t[0]+(a[0]*a[0]*a[0]*t[1])/12;
 	x.push_back(temp);
 	//xn
 	
@@ -64,6 +64,9 @@ int main(int argc, char** argv) {
 	temp = 0;
 	for(int i = V - t[channel-1] + 1; i <=V;i++) {
 		temp+=x[i] * p[0];
+	}
+	for(int i = 1; i < p.size();i++) {
+		p[i] = p[0] * x[i];
 	}
 	cout << "Zajetosc " << channel << " kanalow to "<<temp<<endl;
 	cout << "-------------------------"<<endl;
